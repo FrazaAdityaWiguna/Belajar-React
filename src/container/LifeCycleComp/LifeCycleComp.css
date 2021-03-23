@@ -1,0 +1,14 @@
+.BtnLifeCycle {
+  padding: 10px 36px;
+  border: 1px solid #ffa800;
+  border-radius: 4px;
+  outline: none;
+  background: #ffa900;
+  color: #fff;
+  font-size: 16px;
+}
+
+.BtnLifeCycle:hover {
+  padding: 8px 34px;
+  cursor: pointer;
+}

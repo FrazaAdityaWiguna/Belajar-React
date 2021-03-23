@@ -1,0 +1,18 @@
+.btn-remove,
+.btn-update {
+  background: #ffa900;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  margin: 10px 0;
+  transition: all 0.5s;
+  margin-right: 20px;
+}
+
+.btn-remove:hover,
+.btn-update:hover {
+  cursor: pointer;
+  background: #0084ff;
+  transition: all 0.5s;
+}

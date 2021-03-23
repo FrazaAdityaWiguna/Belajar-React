@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.counterContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  width: 500px;
+  background: #ffa900;
+  border-radius: 5px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 200px;
+}
+
+.card {
+  width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.card .counter {
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.btn {
+  background-color: #ffa900;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  margin: 0 20px;
+}
