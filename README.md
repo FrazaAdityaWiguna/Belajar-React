@@ -6,4 +6,7 @@ db.json
 BlogPost.jsx
 Post.jsx
 
-untuk menjalan Live JSON server pada terminal gunakna command: json-server --watch db.json --port 3004
+cara add & run JSON server:
+1. npm install -g json-server
+2. create file json e.g: db.json
+3. json-server --watch db.json --port 3004
