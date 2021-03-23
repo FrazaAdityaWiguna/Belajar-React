@@ -1,6 +1,6 @@
 # Belajar-React
 
-Laihan CRUD:
+Latihan CRUD:
 file-file yang terhubung dengan latihan CRUD mencakup:
 db.json
 BlogPost.jsx
