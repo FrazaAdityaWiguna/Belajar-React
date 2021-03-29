@@ -8,29 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 // Redux
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-
-const globalState = {
-  totalCounter: 0,
-};
-
-// Reducer - Redux
-const rootReducer = (state = globalState, action) => {
-  if (action.type === "PLUS_COUNTER") {
-    return {
-      ...state,
-      totalCounter: state.totalCounter + 1,
-    };
-  } else if (action.type === "MINUS_COUNTER") {
-    if (state.totalCounter > 0) {
-      return {
-        ...state,
-        totalCounter: state.totalCounter - 1,
-      };
-    }
-  }
-
-  return state;
-};
+import rootReducer from "./redux/Reducer/globalReducer";
 
 // Store - Redux
 const storeCounter = createStore(rootReducer);
