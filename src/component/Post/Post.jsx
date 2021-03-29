@@ -8,7 +8,9 @@ const Post = (props) => {
         <img src="https://placeimg.com/200/150/tech" alt="img-post" />
       </div>
       <div className="content">
-        <div className="title">{props.data.title}</div>
+        <div className="title" onClick={() => props.goDetail(props.data.id)}>
+          {props.data.title}
+        </div>
         <div className="desc">{props.data.body}</div>
 
         <button className="btn-remove" onClick={() => props.remove(props.data.id)}>
@@ -21,4 +23,5 @@ const Post = (props) => {
     </div>
   );
 };
+
 export default Post;
