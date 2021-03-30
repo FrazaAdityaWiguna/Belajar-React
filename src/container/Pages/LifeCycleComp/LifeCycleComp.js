@@ -2,6 +2,9 @@ import React, { Component, Fragment } from "react";
 import "./LifeCycleComp.css";
 import { connect } from "react-redux";
 
+// Context API
+import { RootContext } from "../../home/home";
+
 class LifeCycleComp extends Component {
   constructor(props) {
     super(props);
@@ -32,15 +35,22 @@ class LifeCycleComp extends Component {
   render() {
     console.log("render");
     return (
-      <Fragment>
-        <p>LifeCycleCom</p>
-        <hr />
-        <button className="BtnLifeCycle" onClick={this.changeCount}>
-          Component Button {this.state.count}
-        </button>
-        <hr />
-        Total Counter: {this.props.counter}
-      </Fragment>
+      <RootContext.Consumer>
+        {(value) => {
+          console.log(value);
+          return (
+            <Fragment>
+              <p>LifeCycleCom</p>
+              <hr />
+              <button className="BtnLifeCycle" onClick={this.changeCount}>
+                Component Button {this.state.count}
+              </button>
+              <hr />
+              Total Counter: {value.state.totalCounter}
+            </Fragment>
+          );
+        }}
+      </RootContext.Consumer>
     );
   }
 
@@ -79,12 +89,16 @@ class LifeCycleComp extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    counter: state.totalCounter,
-  };
-};
+// Redux
+// const mapStateToProps = (state) => {
+//   return {
+//     counter: state.totalCounter,
+//   };
+// };
 
-export default connect(mapStateToProps)(LifeCycleComp);
+// export default connect(mapStateToProps)(LifeCycleComp);
+
+// Context
+export default LifeCycleComp;
 
 // link web: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/

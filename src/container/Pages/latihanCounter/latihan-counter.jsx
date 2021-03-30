@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import CardCounter from "./cardCounter/cardCounter";
 import "./latihan-counter.css";
 import { connect } from "react-redux";
+import { RootContext } from "../../home/home";
 
 class LatihanCounter extends Component {
   // state = {
@@ -16,22 +17,32 @@ class LatihanCounter extends Component {
 
   render() {
     return (
-      <Fragment>
-        <div className="counterContainer">
-          <header className="header">
-            <div className="nilaiCount">{this.props.counter}</div>
-          </header>
-          <CardCounter />
-        </div>
-      </Fragment>
+      <RootContext.Consumer>
+        {(value) => {
+          return (
+            <Fragment>
+              <div className="counterContainer">
+                <header className="header">
+                  <div className="nilaiCount">{value.state.totalCounter}</div>
+                </header>
+                <CardCounter />
+              </div>
+            </Fragment>
+          );
+        }}
+      </RootContext.Consumer>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    counter: state.totalCounter,
-  };
-};
+// Redux
 
-export default connect(mapStateToProps)(LatihanCounter);
+// const mapStateToProps = (state) => {
+//   return {
+//     counter: state.totalCounter,
+//   };
+// };
+
+// export default connect(mapStateToProps)(LatihanCounter);
+
+export default LatihanCounter;
