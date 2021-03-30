@@ -2,22 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Home from "./container/home/home";
-// import LatihanCounter from "./container/latihanCounter/latihan-counter";
 import reportWebVitals from "./reportWebVitals";
 
-// Redux
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import rootReducer from "./redux/Reducer/globalReducer";
-
-// Store - Redux
-const storeCounter = createStore(rootReducer);
-
+// Context
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={storeCounter}>
-      <Home />
-    </Provider>
+    <Home />
   </React.StrictMode>,
   document.getElementById("root")
 );
