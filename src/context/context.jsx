@@ -9,7 +9,7 @@ const Provider = RootContext.Provider;
 const GlobalProvider = (Children) => {
   return class ParentComp extends Component {
     state = {
-      totalCounter: 2,
+      totalCounter: 0,
     };
 
     dispatchContext = (action) => {

@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Post from "../../../component/Post/Post";
 import "./BlogPost.css";
 import axios from "axios";
+import API from "../../../services/indexAPI";
 
 class BlogPost extends Component {
   state = {
@@ -14,14 +15,19 @@ class BlogPost extends Component {
       body: "",
     },
     isUpdate: false,
+    users: [],
   };
 
   // Ambil API
   getPostAPI = () => {
-    axios.get("http://localhost:3004/posts?_sort=id&_order=desc").then((result) => {
-      // Isi content post
+    API.getNewsBlog().then((result) => {
       this.setState({
-        posts: result.data,
+        posts: result,
+      });
+    });
+    API.getUsers().then((result) => {
+      this.setState({
+        users: result,
       });
     });
   };
@@ -139,6 +145,13 @@ class BlogPost extends Component {
             </div>
           </div>
           {/* Melakukan looping untuk 100 post menggunakan MAP */}
+          {this.state.users.map((user) => {
+            return (
+              <p>
+                {user.name} - {user.email}
+              </p>
+            );
+          })}
           {this.state.posts.map((post) => {
             return <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetail={this.handleDetail} />;
           })}

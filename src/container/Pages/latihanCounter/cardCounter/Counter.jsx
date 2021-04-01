@@ -4,7 +4,7 @@ import { GlobalConsumer } from "../../../../context/context";
 
 export class Counter extends Component {
   render() {
-    console.log(this);
+    // console.log(this);
     return (
       // Using Context API: buat RootContext.Consumer > Arrow Function > Return
       <Fragment>
