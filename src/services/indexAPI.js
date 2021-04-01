@@ -1,28 +1,15 @@
-import axios from "axios";
+import Get from "./Get";
+import Send from "./Send";
 
-const RootPath = "http://localhost:3004";
-const OnlineRoot = "https://jsonplaceholder.typicode.com";
+// Send
+const postNewsBlog = (data) => Send("posts", false, data);
 
-const Get = (path, root) => {
-  const promise = new Promise((resolve, reject) => {
-    axios.get(`${root ? OnlineRoot : RootPath}/${path}`).then(
-      (result) => {
-        // Isi content post
-        console.log(result, "promise");
-        resolve(result.data);
-      },
-      (err) => {
-        reject(err);
-      }
-    );
-  });
-  return promise;
-};
-
+// GET
 const getNewsBlog = () => Get("posts?_sort=id&_order=desc", false);
 const getUsers = () => Get("users", true);
 
 const API = {
+  postNewsBlog,
   getNewsBlog,
   getUsers,
 };

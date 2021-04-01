@@ -52,23 +52,17 @@ class BlogPost extends Component {
 
   // Kirim Post baru melalui form
   sendPostDataToAPI = () => {
-    axios.post("http://localhost:3004/posts", this.state.formBlogPost).then(
-      (result) => {
-        console.log(result);
-        this.setState({
-          formBlogPost: {
-            userId: 1,
-            id: 1,
-            title: "",
-            body: "",
-          },
-        });
-        this.getPostAPI();
-      },
-      (err) => {
-        console.log("error", err);
-      }
-    );
+    API.postNewsBlog(this.state.formBlogPost).then((result) => {
+      this.getPostAPI();
+      this.setState({
+        formBlogPost: {
+          userId: 1,
+          id: 1,
+          title: "",
+          body: "",
+        },
+      });
+    });
   };
 
   // Remove Post
@@ -129,7 +123,7 @@ class BlogPost extends Component {
           <p className="section-title">Blog Post</p>
           <div className="form-add-post">
             <label htmlFor="title">Title</label>
-            <input type="text" value={this.state.formBlogPost.title} name="title" placeholder="add title" onChange={this.handleFormChage} />
+            <input type="text" name="title" value={this.state.formBlogPost.title} placeholder="add title" onChange={this.handleFormChage} />
             <label htmlFor="body">Blog Content</label>
             <textarea name="body" value={this.state.formBlogPost.body} id="body" cols="30" rows="10" placeholder="add body content" onChange={this.handleFormChage}></textarea>
             <div className="row">
@@ -145,13 +139,13 @@ class BlogPost extends Component {
             </div>
           </div>
           {/* Melakukan looping untuk 100 post menggunakan MAP */}
-          {this.state.users.map((user) => {
+          {/* {this.state.users.map((user) => {
             return (
               <p>
                 {user.name} - {user.email}
               </p>
             );
-          })}
+          })} */}
           {this.state.posts.map((post) => {
             return <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetail={this.handleDetail} />;
           })}
