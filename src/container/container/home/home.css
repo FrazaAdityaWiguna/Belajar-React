@@ -1,0 +1,31 @@
+.navbar {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff7300;
+}
+.navbar ul {
+  list-style: none;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar a:hover {
+  color: #00b9e7;
+}
+
+.title-youtubecomp {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,10 @@
+.detail-container {
+  width: 50%;
+  padding: 10px 0;
+  margin: 20px auto;
+  border: 5px solid #ffa900;
+}
+
+.detail-title {
+  font-weight: bold;
+}
