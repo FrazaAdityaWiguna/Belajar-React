@@ -8,6 +8,7 @@ import DetailPost from "../Pages/BlogPost/DetailPost/DetailPost";
 import LatihanCounter from "../Pages/latihanCounter/latihan-counter";
 import LifeCycleComp from "../Pages/LifeCycleComp/LifeCycleComp";
 import YoutubeCompPage from "../Pages/YoutubeCompPage/YoutubeCompPage";
+import Hooks from "../Pages/Hooks/Hooks";
 
 // Style
 import "./home.css";
@@ -34,6 +35,9 @@ class Home extends Component {
               <li>
                 <Link to="/latihancounter">CounterPage</Link>
               </li>
+              <li>
+                <Link to="/hooks">Hooks</Link>
+              </li>
             </ul>
           </nav>
 
@@ -55,6 +59,9 @@ class Home extends Component {
           </Route>
           <Route path="/latihancounter">
             <LatihanCounter />
+          </Route>
+          <Route path="/hooks">
+            <Hooks />
           </Route>
         </Fragment>
       </Router>

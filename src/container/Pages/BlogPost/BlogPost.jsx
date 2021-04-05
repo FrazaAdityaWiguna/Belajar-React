@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import Post from "../../../component/Post/Post";
 import "./BlogPost.css";
-import axios from "axios";
 import API from "../../../services/indexAPI";
 
 class BlogPost extends Component {
@@ -67,7 +66,7 @@ class BlogPost extends Component {
 
   // Remove Post
   handleRemove = (data) => {
-    axios.delete(`http://localhost:3004/posts/${data}`).then((result) => {
+    API.deletePost(data).then((result) => {
       this.getPostAPI();
     });
   };
@@ -87,8 +86,7 @@ class BlogPost extends Component {
   };
 
   putDataToAPI = () => {
-    console.log("putDataToAPI");
-    axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`, this.state.formBlogPost).then((result) => {
+    API.putNewBlog(this.state.formBlogPost.id, this.state.formBlogPost).then((result) => {
       this.getPostAPI();
       this.setState({
         isUpdate: false,
@@ -100,6 +98,7 @@ class BlogPost extends Component {
         },
       });
     });
+    console.log("putDataToAPI");
   };
 
   handleSubmitForm = () => {
